@@ -1,0 +1,18 @@
+[{
+  "sql": "SELECT portfolio, SUM("2014-15") as amount FROM 'table' GROUP BY portfolio",
+  "file": "201505181230budget1516",
+  "format": "csv"
+}, {
+  "sql": "SELECT portfolio, department, SUM("2014-15") as amount FROM 'table' GROUP BY portfolio, department",
+  "file": "201505181230budget1516",
+  "format": "csv"
+}, {
+  "sql": "SELECT portfolio, department, outcome, SUM("2014-15") as amount FROM 'table' GROUP BY portfolio, department, outcome",
+  "file": "201505181230budget1516",
+  "format": "csv"
+}, {
+  "sql": "SELECT portfolio, department, outcome, programme, SUM("2014-15") as amount FROM 'table' GROUP BY portfolio, department, outcome, programme",
+  "file": "201505181230budget1516",
+  "format": "csv"
+}
+]

@@ -1,0 +1,76 @@
+{
+    "name": "US federal balance position 2010-11",
+    "title": "",
+    "homepage": "",
+    "version": "0.1.0",
+    "license": "PDDL-1.0",
+    "resources": [
+        {
+            "name": "us-figures",
+            "path": "us-figures.csv",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "bytes": 102,
+            "schema": {
+                "fields": [
+                    {
+                        "name": "Year",
+                        "type": "integer",
+                        "description": ""
+                    },
+                    {
+                        "name": "Revenue",
+                        "type": "integer",
+                        "description": ""
+                    },
+                    {
+                        "name": "Expenses",
+                        "type": "integer",
+                        "description": ""
+                    },
+                    {
+                        "name": "Assets",
+                        "type": "integer",
+                        "description": ""
+                    },
+                    {
+                        "name": "Liabilities",
+                        "type": "integer",
+                        "description": ""
+                    }
+                ]
+            }
+        }
+    ],
+    "description": "",
+    "mapping": {
+        "measures": {
+            "expenditure": {
+                "source": "Expenses",
+                "currency": "USD"
+            },
+            "revenue": {
+                "source": "Revenue",
+                "currency": "USD"
+            },
+            "assets": {
+                "source": "Assets",
+                "currency": "USD"
+            },
+            "liabilities": {
+                "source": "Liabilities",
+                "currency": "USD"
+            }
+        }
+    },
+    "dimensions": {
+        "date": {
+            "dimensionType": "date",
+            "fields": {
+                "year": {
+                    "source": "Year"
+                }
+            }
+        }
+    }
+}

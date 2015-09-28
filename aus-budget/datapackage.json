@@ -1,0 +1,138 @@
+{
+  "name": "openeconomy3",
+  "title": "",
+  "homepage": "",
+  "version": "0.1.0",
+  "license": "PDDL-1.0",
+  "resources": [
+    {
+      "name": "201505181230budget1516",
+      "path": "data/201505181230budget1516.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "bytes": 949719,
+      "schema": {
+        "fields": [
+          {
+            "name": "Portfolio",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Department/Agency",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Outcome",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Program",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Expense type",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Appropriation type",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Description",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "2014-15",
+            "type": "number",
+            "description": ""
+          },
+          {
+            "name": "2015-16",
+            "type": "number",
+            "description": ""
+          },
+          {
+            "name": "2016-17",
+            "type": "number",
+            "description": ""
+          },
+          {
+            "name": "2017-18",
+            "type": "number",
+            "description": ""
+          },
+          {
+            "name": "2018-19",
+            "type": "number",
+            "description": ""
+          },
+          {
+            "name": "Source document",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Source table",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "URL",
+            "type": "string",
+            "description": ""
+          }
+        ]
+      }
+    }
+  ],
+  "description": "Australian Federal Budget 2015, including projections to 2018-19",
+  "mapping": {
+    "measures": {
+      "amount": {
+        "source": "2015-16",
+        "currency": "AUD",
+        "factor": 1000
+      }
+    }
+  },
+  "dimensions": {
+    "structure": {
+      "dimensionType": "project",
+      "fields": {
+        "portfolio": {
+          "source": "Portfolio"
+        },
+        "department": {
+          "source": "Department/Agency"
+        },
+        "outcome": {
+          "source": "Outcome"
+        },
+        "programme": {
+          "source": "Program"
+        }
+      },
+      "classification": {
+        "dimensionType": "classification",
+        "fields": {
+          "expenseType": {
+            "source": "Expense type"
+          },
+          "appropriationType": {
+            "source": "Appropriation type"
+          },
+          "description": {
+            "source": "Description"
+          }
+        }
+      }
+    }
+  }
+}
