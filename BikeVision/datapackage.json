@@ -1,0 +1,83 @@
+{
+    "name": "bikevision-2029",
+    "title": "Greens BikeVision proposal for 2016-2029",
+    "profiles": {
+        "fiscal": "*",
+        "tabular": "*"
+    },
+    "granularity": "aggregated",
+    "fiscalPeriod": {
+        "start": "2016-07-01",
+        "end": "2017-06-30"
+    },
+    "resources": [ 
+        {
+            "name": "income",
+            "path": "data/Income.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "Year",
+                        "type": "integer"
+                    }, {
+                        "name": "Source",
+                        "type": "string"
+                    }, {
+                        "name": "Amount ($k)",
+                        "type": "number"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "spending",
+            "path": "data/Spending.csv",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "Year",
+                        "type": "integer"
+                    }, {
+                        "name": "Componente",
+                        "type": "string"
+                    }, {
+                        "name": "Cost per year to 2029 ($k)",
+                        "type": "number"
+                    }
+                ]
+            }
+        }
+     ],
+    "model": {
+        "measures": {
+            "cost": {
+                "source": "Cost per year to 2029 ($k)",
+                "currency": "AUD",
+                "factor": 1000,
+                "resource": "spending",
+                "direction": "expenditure",
+                "phase": "proposed"
+            },
+            "funding": {
+                "source": "Amount ($k)",
+                "currency": "AUD",
+                "factor": 1000,
+                "resource": "income",
+                "direction": "income",
+                "phase": "proposed"
+
+            }
+        },
+        "dimensions": {
+            "year": {
+                "attributes": {
+                    "year": {
+                        "constant": 2016
+                    }
+                },
+                "primaryKey": [ "year" ],
+                "dimensionType": "datetime"
+            }
+        }
+
+    }
